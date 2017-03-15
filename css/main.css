@@ -42,6 +42,17 @@ ul.posts li {
     list-style: none;
 }
 
+.pngcontainer {
+  height: 100px;
+  width: 100px;
+
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .splatter {
   position: absolute;
   top: 90px;
