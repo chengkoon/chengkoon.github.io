@@ -2,7 +2,13 @@
   <div id="app">
     <div class="columns is-gapless is-desktop">
       <sidebar-nav :activeTab="activeTab">First column</sidebar-nav>
-      <main-content></main-content>
+      <div class="column is-9 main" id="main">
+        <div class="content-wrapper">
+          <main-content></main-content>
+          <projects></projects>
+          <contact-form></contact-form>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -11,12 +17,17 @@
 import { EventBus } from './event-bus.js'
 import SidebarNav from './SidebarNav.vue'
 import MainContent from './MainContent.vue'
+import Projects from './Projects.vue'
+import ContactForm from './ContactForm.vue'
+const sr = require('scrollreveal')()
 
 export default {
   name: 'app',
   components: {
     'sidebar-nav': SidebarNav,
-    'main-content': MainContent
+    'main-content': MainContent,
+    'projects': Projects,
+    'contact-form': ContactForm
   },
   data () {
     return {
@@ -71,6 +82,11 @@ export default {
         window.scrollTo(0, this.contactPos)
       }
     })
+  },
+  updated () {
+    sr.reveal('.project-item1', { origin: 'bottom', duration: 300, delay: 500 })
+    sr.reveal('.project-item2', { origin: 'bottom', duration: 300, delay: 700 })
+    sr.reveal('.project-item3', { origin: 'bottom', duration: 300, delay: 900 })
   }
 }
 </script>
@@ -82,6 +98,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /*text-align: center;*/
   color: #2c3e50;
+}
+.main {
+  height: 100%;
+}
+.content-wrapper {
+  padding: 0 80px;
 }
 
 .main-content {

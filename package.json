@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bulma": "^0.4.2",
+    "scrollreveal": "^3.3.6",
     "vue": "^2.3.3"
   },
   "devDependencies": {

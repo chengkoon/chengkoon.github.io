@@ -1,6 +1,6 @@
 <template>
-  <div id="main-content" class="main column is-9">
-    <div class="content-wrapper">
+  <!-- <div id="main-content" class="main">
+    <div class="content-wrapper"> -->
 
       <section class="hero">
         <div id="about" class="hero-body">
@@ -12,14 +12,14 @@
           in the 12-weeks <strong>Web Development Immersive</strong> course at <strong>General Assembly</strong>. I believe in the role of technology in levelling society
           and I am excited in taking part in this possibility.
           <br><br>Thanks for your interest in my work, scroll down for more and I look forward to meeting new friends over a cup of tea/coffee/beer/any non-soda drinks!</p>
-          <hr>
+          <br><br><br><hr>
         </div>
       </section>
-
-      <section class="hero">
+      <!-- <projects></projects> -->
+      <!-- <section class="hero">
         <div id="projects" class="hero-body columns">
           <div class="column is-4">
-            <div class="project-item">
+            <div class="project-item1">
               <img src="http://i.imgur.com/zejeln5.png" alt="">
               <div class="project-hover">
                 <div class="inside">
@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="column is-4">
-            <div class="project-item">
+            <div class="project-item2">
               <img src="http://i.imgur.com/FyYjmut.png" alt="">
               <div class="project-hover">
                 <div class="inside">
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="column is-4">
-            <div class="project-item">
+            <div class="project-item3">
               <img src="http://i.imgur.com/qzU9DdJ.png" alt="">
               <div class="project-hover">
                 <div class="inside">
@@ -54,60 +54,19 @@
             </div>
           </div>
         </div>
-      </section>
-
-      <hr>
-
-      <section class="hero">
-        <div id="contact" class="hero-body">
-          <form action="https://formspree.io/chengkoon@gmail.com" method="POST">
-            <div class="field">
-              <label class="label">Your name please</label>
-              <p class="control">
-                <input class="input" type="text" name="name">
-              </p>
-            </div>
-
-            <div class="field">
-              <label class="label">Your email?</label>
-              <p class="control has-icons-left has-icons-right">
-                <!-- <input class="input is-danger" type="text" placeholder="hello@me.com" name="email"> -->
-                <input class="input" type="text" placeholder="hello@me.com" name="email">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-envelope"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <!-- <i class="fa fa-warning"></i> -->
-                </span>
-              </p>
-              <!-- <p class="help is-danger">This email is invalid</p> -->
-            </div>
-
-            <div class="field">
-              <label class="label">Your message (if any?)</label>
-              <p class="control">
-                <textarea class="textarea" name="message"></textarea>
-              </p>
-            </div>
-
-            <div class="field is-grouped">
-              <p class="control">
-                <input type="submit" class="button is-primary" value="Submit">
-              </p>
-              <p class="control">
-                <button type="button" name="button" class="button is-info">Clear</button>
-              </p>
-            </div>
-          </form>
-        </div>
-      </section>
-    </div>
-  </div>
+      </section> -->
+    <!-- </div>
+  </div> -->
 </template>
 
 <script>
+// import Projects from './Projects.vue'
+
 export default {
   name: 'main-content',
+  components: {
+    // 'projects': Projects
+  },
   data () {
     return {
     }
@@ -122,12 +81,12 @@ h4.opener {
   font-size: 16px;
   font-weight: 600;
 }
-.main {
+/*.main {
   height: 100%;
 }
 .content-wrapper {
   padding: 0 80px;
-}
+}*/
 .about-image {
   overflow: hidden;
   border: 4px solid #dddddd;
