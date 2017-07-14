@@ -3,7 +3,7 @@
     <div class="fixed">
       <div class="top-section">
         <div class="profile-image">
-          <img src="./assets/img/profilepic.png">
+          <img src="http://i.imgur.com/QWVYWVC.png">
         </div>
         <h3 class="profile-title">Ann Cheng Koon (CK)</h3>
         <p class="profile-description">Web Developer</p>
@@ -12,9 +12,9 @@
         <p class="menu-label">
         </p>
         <ul class="menu-list">
-          <li><a href="#about"><i class="fa fa-pencil"></i>Profile</a></li>
-          <li><a href="#projects"><i class="fa fa-paperclip"></i>Projects</a></li>
-          <li><a href="#contact"><i class="fa fa-link"></i>Contact Me</a></li>
+          <li :class="{'activeTab': isAboutActive, 'testTab': highlightTab}"><a @click="goTo('about')"><i class="fa fa-pencil"></i>Profile</a></li>
+          <li :class="{'activeTab': isProjectsActive}"><a @click="goTo('projects')"><i class="fa fa-paperclip"></i>Projects</a></li>
+          <li :class="{'activeTab': isContactActive}"><a @click="goTo('contact')"><i class="fa fa-link"></i>Contact Me</a></li>
         </ul>
       </div>
     </div>
@@ -22,11 +22,30 @@
 </template>
 
 <script>
+import { EventBus } from './event-bus.js'
+
 export default {
   name: 'sidebar-nav',
+  props: ['activeTab'],
   data () {
     return {
-
+      highlightTab: false
+    }
+  },
+  methods: {
+    goTo (location) {
+      EventBus.$emit('scrollTo', location)
+    }
+  },
+  computed: {
+    isAboutActive () {
+      return this.activeTab === 1
+    },
+    isProjectsActive () {
+      return this.activeTab === 2
+    },
+    isContactActive () {
+      return this.activeTab === 3
     }
   }
 }
@@ -37,6 +56,12 @@ export default {
   background-color: #5f6d7e;
   /*height: 100%;*/
   color: white;
+}
+.activeTab {
+  background-color: rgb(73, 84, 97);
+}
+.testTab {
+  background-color: black !important;
 }
 .fixed {
   position: fixed;
@@ -83,15 +108,4 @@ h3.profile-title {
   font-size: 18px;
   font-weight: 700;
 }
-
-/*@font-face {
-  font-family: 'robotobold';
-  src: url("./assets/fonts/Roboto-Bold-webfont.eot");
-  src: url("./assets/fonts/Roboto-Bold-webfont.eot?#iefix") format("embedded-opentype");
-  src: url("./assets/fonts/Roboto-Bold-webfont.woff") format("woff");
-  src: url("./assets/fonts/Roboto-Bold-webfont.ttf") format("truetype");
-  src: url("./assets/fonts/Roboto-Bold-webfont.svg#robotobold") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}*/
 </style>
