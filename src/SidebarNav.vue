@@ -1,11 +1,11 @@
 <template>
-  <aside id="sidebar-nav" class="menu sidebar column is-3">
-    <div class="fixed">
+  <nav role="select" id="sidebar-nav" class="menu sidebar">
+    <div class="fixed desktop-navbar">
       <div class="top-section">
         <div class="profile-image">
           <img src="http://i.imgur.com/QWVYWVC.png">
         </div>
-        <h3 class="profile-title">Ann Cheng Koon (CK)</h3>
+        <h3 class="profile-title">Ann Cheng Koon (CKK)</h3>
         <p class="profile-description">Web Developer</p>
       </div>
       <div class="links">
@@ -18,7 +18,19 @@
         </ul>
       </div>
     </div>
-  </aside>
+    <div class="mobile-navbar">
+      <div class="mobile-profile-image">
+        <img src="http://i.imgur.com/QWVYWVC.png">
+      </div>
+      <div class="mobile-links">
+        <ul class="mobile-menu-list">
+          <li><a @click="goTo('about')">Profile</a></li>
+          <li><a @click="goTo('projects')">Projects</a></li>
+          <li><a @click="goTo('contact')">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -108,4 +120,59 @@ h3.profile-title {
   font-size: 18px;
   font-weight: 700;
 }
+nav[role="select"] > div.mobile-navbar {
+  display:none;
+}
+@media screen and (max-width: 802px) {
+  div.desktop-navbar {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 769px) {
+  nav[role="select"] > div.desktop-navbar {
+    display: none;
+  }
+  nav[role="select"] > div.mobile-navbar {
+    display: flex;
+    position: fixed;
+    background-color: #5f6d7e;
+    width: 100%;
+    height: 10%;
+    justify-content: space-around;
+  }
+  div.mobile-profile-image {
+    width: 65px;
+    height: 65px;
+    border: 4px solid white;
+    border-radius: 75px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+  div.mobile-links {
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
+  ul.mobile-menu-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  ul.mobile-menu-list li {
+    display: inline;
+    vertical-align: middle;
+  }
+  ul.mobile-menu-list li a {
+    color: white;
+    font-size: 18px;
+  }
+  /*ul.mobile-menu-list li a:hover {
+    background-color: #495461;
+  }*/
+}
+
 </style>

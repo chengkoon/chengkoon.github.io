@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="columns is-gapless is-desktop">
-      <sidebar-nav :activeTab="activeTab">First column</sidebar-nav>
+    <div class="columns is-gapless">
+      <sidebar-nav :activeTab="activeTab" class="column is-3">First column</sidebar-nav>
       <div class="column is-9 main" id="main">
         <div class="content-wrapper">
           <main-content></main-content>
